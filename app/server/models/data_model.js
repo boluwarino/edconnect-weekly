@@ -8,7 +8,13 @@ class DataModel {
     }
 
     getById(id) {
-
+        for (let i=0; i < this.data.length; i++){
+            if(this.data[i].id == id){
+                 return this.data[i];
+            }
+               
+        }
+        return null;
     }
 
     save(obj) {
@@ -20,11 +26,29 @@ class DataModel {
     }
 
     update(obj, id) {
-
+        for(let i = 0; i < this.data.length; i++){
+            if(this.data[i].id == id){
+                for(let name in obj){
+                    this.data[i][name] = obj[name]
+                }
+                return true;
+            }
+        }
+        return false;
     }
 
     delete(id) {
-
+        let originalLenght = this.data.length
+        for(let i=0; i < this.data.length; i++){
+            if(this.data[i].id == id){
+                this.data.splice(i,1)
+            }
+           
+        }
+       if(this.data.length < originalLenght){
+           return true;
+       }
+       return false;
     }
 
     // this method will be overriden in the sub classes
@@ -32,7 +56,3 @@ class DataModel {
         return false;
     }
 }
-
-// Do not worry about the below for now; It is included so that we can test your code
-// We will cover module exports in later parts of this course
-module.exports = DataModel;
