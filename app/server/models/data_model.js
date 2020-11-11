@@ -8,13 +8,7 @@ class DataModel {
     }
 
     getById(id) {
-        for (let i=0; i < this.data.length; i++){
-            if(this.data[i].id == id){
-                 return this.data[i];
-            }
-               
-        }
-        return null;
+        return this.data.find(entity => entity.id === id) || null;
     }
 
     save(obj) {
@@ -26,29 +20,26 @@ class DataModel {
     }
 
     update(obj, id) {
-        for(let i = 0; i < this.data.length; i++){
-            if(this.data[i].id == id){
-                for(let name in obj){
-                    this.data[i][name] = obj[name]
-                }
-                return true;
-            }
+      let flag = false;
+      this.data = this.data.map(entity => {
+        if(entity.id === id){
+          const prototype = Object.getPrototypeOf(entity);
+          entity = Object.assign(Object.create(prototype), entity, obj);
+          flag = true;
         }
-        return false;
+        return entity;
+      })
+      return flag;
     }
 
     delete(id) {
-        let originalLenght = this.data.length
-        for(let i=0; i < this.data.length; i++){
-            if(this.data[i].id == id){
-                this.data.splice(i,1)
-            }
-           
-        }
-       if(this.data.length < originalLenght){
-           return true;
-       }
-       return false;
+      let position = this.data.findIndex(entity => entity.id === id);
+      if(position===-1){
+        return false;
+      } else {
+        this.data.splice(position, 1);
+        return true;
+      }
     }
 
     // this method will be overriden in the sub classes
@@ -56,3 +47,7 @@ class DataModel {
         return false;
     }
 }
+
+// Do not worry about the below for now; It is included so that we can test your code
+// We will cover module exports in later parts of this course
+module.exports = DataModel;
