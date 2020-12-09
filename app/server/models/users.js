@@ -23,8 +23,7 @@ class Users extends DataModel {
             if (obj.email === email && obj.password === password){
                 return true;
             }
-        }; 
-        
+        }
         return false;
     }
 
@@ -34,7 +33,7 @@ class Users extends DataModel {
                 return obj;
             }
         };
-        return null;       
+        return null;
     }
 
     getByMatricNumber(matricNumber){
@@ -43,7 +42,7 @@ class Users extends DataModel {
                 return obj;
             }
         };
-        return null;       
+        return null;
     }
 
     validate(obj){
