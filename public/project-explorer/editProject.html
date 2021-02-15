@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <title>Project Explorer</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary row">
+      <a href="index.html" class="navbar-brand ml-2">Project Explorer</a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-lg-flex" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0" name="search" action="index.html" method="post">
+          <input class="form-control mx-2" placeholder="Search Projects">
+          <button class="btn btn-outline-light mx-2 my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <ul class="navbar-nav flex-fill d-lg-flex">
+          <li class="nav-item mx-2"><a class="nav-link" href="search.html">Projects</a></li>
+          <li class="nav-item mx-2 mr-lg-auto"><a class="nav-link" href="createProject.html">Submit</a></li>
+          <li class="nav-item mx-2"><a class="nav-link anon-session-link" href="register.html">Sign up</a></li>
+          <li class="nav-item mx-2"><a class="nav-link anon-session-link" href="login.html">Login</a></li>
+          <li class="nav-item mx-2"><a class="nav-link d-none" href="#" id="logout">Logout</a></li>
+          <li class="nav-item mx-2"><a class="nav-link d-none" id="username"></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+    <section class="container project">
+      <div class="mt-4 mb-3">
+        <h4>Project 4</h4>
+      </div>
+      <ul class="list-unstyled d-flex justify-content-between text-dark mb-5 ml-md-2">
+        <li><h6>Created By<br>Ade Ade</h6></li>
+        <li><h6>Date Created<br>03/03/2020</h6></li>
+        <li><h6>Last Updated<br>04/04/2020</h6></li>
+        <li><a href="viewProject.html" class="btn btn-primary">View Project</a> </li>
+      </ul>
+    </section>
+    <section class="container">
+      <form class="form" action="viewProject.html" method="post">
+        <div class="row">
+          <div class="col">
+            <h5 class="mb-3">Edit Project</h5>
+            <div class="form-group">
+              <label for="title">Project Name</label>
+              <input type="text" name="name" class="form-control" placeholder="Enter project name" value="Project 4">
+            </div>
+            <div class="form-group">
+              <label for="abstract">Project Abstract</label>
+              <textarea name="abstract" class="form-control" rows="8" cols="80">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+            </div>
+            <div class="form-group">
+              <label for="authors">Author(s)</label>
+              <input type="text" name=authors class="form-control" placeholder="Enter author names (separated by comma)" value="Ade Ade, Brian James">
+            </div>
+            <div class="form-group">
+              <label for="tags">Tag(s)</label>
+              <input type="text" name="tags" class="form-control" placeholder="Use # to tag project with different topics (e.g. #javascript #mongodb)" value="#yaml, #ejs">
+            </div>
+          </div>
+          <div class="col">
+            <h5 class="mb-4">Manage Project Files</h5>
+            <div class="input-group mb-3">
+              <div class="custom-file">
+                <input type="file" value="Browse" name="projectFile" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                <label for="inputGroupFile01" class="custom-file-label">Add Project File</label>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <h5>Project Files</h5>
+              </div>
+              <div class="card-body">
+                <p class="text-center small">No file uploaded yet</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="Save" class="btn btn-primary">
+      </form>
+    </section>
+    <footer class="container">
+      <div class="bg-light p-2 d-flex">
+        <span class="ml-auto">Project Explorer &copy; 2020 &#8729; Edconnect</span>
+      </div>
+    </footer>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
