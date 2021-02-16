@@ -9,7 +9,7 @@ class Project {
         this.tags = tags;
         this.createdBy = createdBy;
     }
-}
+} 
 
 class Projects extends DataModel {
     validate(obj){

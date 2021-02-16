@@ -24,6 +24,8 @@ class Users extends DataModel {
                 return true;
             }
         }
+        this.errors = [];
+        this.errors.push("Invalid Username or Password");
         return false;
     }
 
@@ -49,7 +51,7 @@ class Users extends DataModel {
         this.errors = [];
 
         for (const property in obj) {
-            if(obj[property] === ""){
+            if(obj[property] === "" || obj[property] === null){
                 this.errors.push(`${property} should not be empty`);
             }
         }
