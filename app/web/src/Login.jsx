@@ -29,7 +29,7 @@ const Login = (props) => {
       headers: {
         'Content-Type' : 'application/json'
     },
-      body: JSON.stringify({email: email, password: password})
+    body: JSON.stringify({email: email, password: password})
     }).then(async (response) => {
       let body = await response.json();
       if (response.status === 200){
